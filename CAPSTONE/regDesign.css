@@ -1,0 +1,122 @@
+body {
+
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    font-family: Poppins;
+    
+}
+    
+.navbar {
+    
+padding: 2px;
+font-size: 13px;
+        
+}
+    
+.header {
+
+background-color: #D2D2D2;
+width: 100%;
+height: 25px;
+position: absolute;
+top: 0;
+left: 0;
+padding: 10px 0;
+
+}
+    
+nav ul {
+
+list-style-type: none;
+margin: 0;
+padding: 0;
+
+}
+    
+nav ul li {
+display: inline;
+}
+    
+nav ul li a {
+display: inline-block;
+color: #000000;
+    
+padding: 1px 20px;
+text-decoration: none;
+margin-right: 10px;
+
+}
+    
+/*nav ul li a:hover {
+        background-color: #ff7029;
+}*/
+
+.customer-info {
+
+    font-family: Poppins;
+    font-size: 14px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    display: inline-block;
+    text-align: right;
+    margin-right: 30px;
+    margin-left: 20px;
+
+    max-width: 400px;
+    height: 350px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 145px;
+
+}
+
+.UID{
+    resize: none;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 3px;
+    width: 245px;
+    margin-left: 10px;
+    height: 25px;
+    
+  }
+input[type="text"] {
+
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  width: 245px;
+  margin-left: 10px;
+  
+}
+
+.ins {
+
+    font-family: Poppins;
+    margin-top: 60px;
+    font-size: 13px;
+    text-align: center;
+}
+
+button[type="submit"] {
+    padding: 8px 15px;
+    background-color: #D9D9D9;
+    color: #000000;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: Poppins;
+    font-size: 12px;
+    width: 100px;
+    margin-top: 5px;
+    text-align: center;
+
+}
+

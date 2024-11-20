@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.header-container {
+    background-color: #93E349;
+    margin: 0;
+}
+
+.header-content {
+    width: 1530px;
+    font-family: Fustat;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.branding {
+    font-size: 28px;
+}
+
+.subBranding {
+    font-family: Poppins;
+    font-size: 11px;
+    margin-left: 58px;
+    margin-top: -8px;
+}
+
+.cyber {
+    color: #f5f5f5;
+}
+
+.watch {
+    color: #232323;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    font-family: Poppins; 
+}
+
+.formHolder {
+    margin-top: 158px;
+    background-color: #f9f9f9; /* Add a background color if needed */
+    padding: 20px; /* Add some padding around the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+}
+
+.stopBtn, .loadBtn {
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    padding: 2px 20px; /* Vertical and horizontal padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    height: 32px;
+    width: 100%;
+    font-family: Poppins;
+}
+
+.stopBtn {
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
