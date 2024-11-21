@@ -96,7 +96,15 @@ if (isset($_POST['balance']) && isset($_POST['uid'])) {
                         <input type="text" name="pc_number" id="pc_number" value="" readonly><br>
 
                         <label for="loadBal">Load Balance:</label>
-                        <input type="text" name="loadBal" id="loadBal" value="₱<?php echo number_format($userData['balance'], 2); ?>" readonly/><br><br>
+                        <input type="text" name="loadBal" id="loadBal" value="<?php echo number_format($userData['balance']); ?>" readonly/><br>
+
+                        <label for="">Promos:</label>
+                        <select id="promoList" name="promoList">
+                            <option value="" selected disabled>Select promo</option>
+                            <option value="20">1 Hour | PHP 20</option>
+                            <option value="40">2 Hours | PHP 40</option>
+                            <option value="60">3 Hours | PHP 60</option>
+                        </select>
 
                         <p id="current-load">Current Load: ₱<?php echo number_format($userData['balance'], 2); ?></p>
                     <?php else: ?>
@@ -105,7 +113,7 @@ if (isset($_POST['balance']) && isset($_POST['uid'])) {
                     
                     <!-- buttons -->
                     <button type="button" name="stopButton" id="stopButton" onclick="stopPC()" class="stopBtn">Stop</button><br>
-                    <button type="button" name="loadButton" id="loadButton" onclick="addToLoad()" class="loadBtn">Load</button><br><br>
+                    <button type="button" name="loadButton" id="loadButton" class="loadBtn">Load</button><br><br>
                 </div>
             </form>
             <form action="../function/Logout.php" method="POST">
@@ -124,5 +132,10 @@ if (isset($_POST['balance']) && isset($_POST['uid'])) {
 
 <script src="../js/counter.js"></script>
 <script src="../js/balanceRealTimeUpdate.js"></script>
+<script src="../js/TNCLoad.js" defer></script>
 </body>
 </html>
+
+<?php 
+//return to scan after availing a promo
+?>
