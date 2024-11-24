@@ -1,0 +1,1 @@
+<?php $coinrst=''; echo $coinrst;?>
