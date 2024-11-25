@@ -81,7 +81,7 @@ if (isset($_POST['submit_balance'])) {
 <div class="container">
     <input type="checkbox" id="check">
     <div class="login form">
-      <header class="" style="color: black;">Cyber Cafe </header>
+      <header class="" style="color: black;">Cyber Café</header>
       <form action="" method="POST" id="autosubmit">
       <label for="loadBal">UID</label>
       <input type="text" name="uid" id="uid" value="<?php echo $uid; ?>" style="text-align:center;"readonly/><br>
@@ -95,8 +95,8 @@ if (isset($_POST['submit_balance'])) {
             <label for="loadBal">Load Balance</label>
             <input type="text" name="loadBal" id="loadBal" value="<?php echo number_format($userData['balance']); ?>" style="text-align:center;"readonly/><br>
 
-            <label for="">Promos:</label>
-                        <select id="promo" name="promoList">
+            <label for="">Promos</label>
+                        <select id="promo" name="promoList" class="promoText">
                             <option value="" selected disabled>Select promo</option>
                             <option value="20">1 Hour | PHP 20</option>
                             <option value="40">2 Hours | PHP 40</option>
@@ -107,81 +107,45 @@ if (isset($_POST['submit_balance'])) {
         <?php endif; ?>
         <br>
 
-        <label for="balance">Add Balance: </label>
-        <input type="number" id="balance" name="balance" value="" style="text-align:center;" required  readonly><br>
+        <label for="balance">Add Balance </label><br>
+        <input type="number" id="balance" name="balance" value="" style="text-align:center;" required placeholder="Insert a bill" ><br><br>
 
-        <input type="submit" name="stopButton" id="stopButton" onclick="stopPC()" class="button" value="Stop"></input>
         <input type="submit" name="loadButton" id="loadButton" class="button" value="Load"></input>
         <input type="submit" name="submit_balance" value="Add Balance" class="button"></input>
-        <input type="button" value="Submit" onclick="sendData()">  <!-- Trigger the JavaScript function -->
 
         </form>
 
                
             
     </div>
-
-
-
-       <!-- <textarea 
-            id="uid-display" 
-            class="UID" 
-            name="uid" 
-            placeholder="Enter the Card UID" 
-            style="height: 60px; width: 100%; padding: 15px; font-size: 17px; margin-bottom: 1.3rem; border: 1px solid #ddd; border-radius: 6px; outline: none; resize: none;" >
-        </textarea>
-            <input type="submit" class="button" value="Submit" name="submit">-->
-        
-    </div>
-
   </div>
-
 
 <script src="../js/counter.js"></script>
 <script src="../js/balanceRealTimeUpdate.js"></script>
 <script src="../js/TNCLoad.js" defer></script>
 <script src="../js/balance_insertion.js" defer></script>
-<script>
-            // Function to send the UID, balance, and promo to the PHP script via AJAX
-            function sendData() {
-            var uid = document.getElementById("uid").value;         // Get the UID from the input field
-            var balance = document.getElementById("loadBal").value; // Get the balance from the input field
-            var promo = document.getElementById("promo").value;     // Get the promo from the input field
-
-            
-            if (uid === "" || balance === "" || promo === "") {
-                alert("Please fill all fields.");
-                return;
-            }
-
-            // Make an AJAX request using Fetch API
-            fetch('submitData.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: 'uid=' + encodeURIComponent(uid) + 
-                      '&balance=' + encodeURIComponent(balance) +
-                      '&promo=' + encodeURIComponent(promo)
-            })
-            .then(response => response.json())  // Parse the JSON response
-            .then(data => {
-                console.log(data);  // Log the response (you can process it further)
-                alert("Data sent:\nUID: " + data.uid + "\nBalance: " + data.balance + "\nPromo: " + data.promo);
-            })
-            .catch(error => {
-                console.error("Error sending data:", error);
-            });
-        }
-
-</script>
-
-
-
 </body>
 </html>
 
-<?php 
+<?php
+//php load fuction
+if(isset($_POST['loadButton'])){
+    $uid = $_POST['uid'];
+    $promo = $_POST['promoList'];
+    $pc_number =$_POST['pc_number'];
+
+    $newBalance = $userData['balance'] - $promo;
+
+    $sqlLoadUID = "UPDATE customerregister_tbl SET balance = '$newBalance', promo = '$promo', pc_number = '$pc_number' WHERE uid = '$uid'";
+    $qryLoadUID = mysqli_query($conn, $sqlLoadUID);
+
+    echo"
+        <script>
+            alert('Promo availed! Please proceed to your designated PC number.');
+            window.open('../function/submitData.php?uid=$uid','_blank');
+        </script>
+    ";
+}
 // Closing the connection to the database
 $conn->close();
 ?>

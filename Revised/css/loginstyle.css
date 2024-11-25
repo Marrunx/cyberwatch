@@ -123,6 +123,20 @@ body{
 	animation: loading 0.3s ease infinite;
   }
   
+  .promoText {
+    height: 60px;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 17px;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    -webkit-appearance: none; /* For Safari/Chrome */
+    -moz-appearance: none;    /* For Firefox */
+    appearance: none;         /* Standard property */
+    text-align: center;
+}
   @keyframes loading {
 	from {
 	  transform: rotate(0turn);

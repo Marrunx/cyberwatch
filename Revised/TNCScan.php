@@ -23,7 +23,7 @@ if (file_exists($logFile)) {
   <div class="container">
     <input type="checkbox" id="check">
     <div class="login form">
-      <header class="" style="color: black;">Cyber Cafe </header>
+      <header class="" style="color: black;">Cyber Café </header>
       <form action="function/check_uid.php" method="POST" id="autosubmit">
         <textarea 
             readonly
