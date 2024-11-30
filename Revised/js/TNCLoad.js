@@ -1,6 +1,22 @@
 const textarea = document.getElementById('loadBal');
 const select = document.getElementById('promoList');
 
+const uid = document.getElementById('uid').value;
+const billInput = document.getElementById('balance');
+
+
+const balance = document.getElementById('loadBal').value;
+
+setInterval(() =>{
+  const floatBalance  = parseFloat(billInput.value);
+  if(floatBalance > 1){
+    const billBalance = document.getElementById('balance').value;
+  window.location.href = `../function/addBalance.php?uid=${uid}&balance=${balance}&bill=${billBalance}`;
+ }
+});
+
+
+
 // Function to update the dropdown options
 function updateDropdown() {
   const textareaValue = parseInt(textarea.value, 10);
@@ -54,3 +70,5 @@ document.getElementById('loadButton').addEventListener('click', function(){
 
     }
 })
+
+

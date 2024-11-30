@@ -8,9 +8,9 @@
 
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 
-const char* ssid = "Marron"; // Replace with your WiFi SSID
-const char* password = "543210123"; // Replace with your WiFi password
-const char* serverUrl = "http://192.168.0.118/ComputerRental/Revised/function/scanned_uid.php"; // Replace with your server's URLC:\xampp\htdocs\ComputerRental\Revised\function
+const char* ssid = "OPPOA17"; // Replace with your WiFi SSID
+const char* password = "jjuralbal"; // Replace with your WiFi password
+const char* serverUrl = "http://192.168.254.63/ComputerRental/Revised/function/scanned_uid.php"; // Replace with your server's URLC:\xampp\htdocs\ComputerRental\Revised\function
                                                                                                 // Check IPv4 in CMD using IPConfig
 
 WiFiClient client;

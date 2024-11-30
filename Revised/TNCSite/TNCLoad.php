@@ -50,6 +50,11 @@ if (isset($_POST['submit_balance'])) {
         $updateStmt = $conn->prepare($updateSql);
         $updateStmt->bind_param("ds", $newBalance, $uid);  // 'd' for double (for balance)
 
+       
+            if (file_exists($logBalanceFile)) {
+                file_put_contents($logBalanceFile, ''); // Overwrite the file with an empty string
+                }           
+
         if ($updateStmt->execute()) {
             echo "<script>alert('Balance added successfully!'); window.location.href = window.location.href;</script>";
         } else {
@@ -93,7 +98,7 @@ if (isset($_POST['submit_balance'])) {
             <input type="text" name="pc_number" id="pc_number" value="" style="text-align:center;" readonly><br>
 
             <label for="loadBal">Load Balance</label>
-            <input type="text" name="loadBal" id="loadBal" value="<?php echo number_format($userData['balance']); ?>" style="text-align:center;"readonly/><br>
+            <input type="text" name="loadBal" id="loadBal" value="<?php echo($userData['balance']); ?>" style="text-align:center;"readonly/><br>
 
             <label for="">Promos</label>
                         <select id="promo" name="promoList" class="promoText">
@@ -107,11 +112,11 @@ if (isset($_POST['submit_balance'])) {
         <?php endif; ?>
         <br>
 
-        <label for="balance">Add Balance </label><br>
-        <input type="number" id="balance" name="balance" value="" style="text-align:center;" required placeholder="Insert a bill" ><br><br>
+        <!--<label for="balance">Add Balance </label><br>-->
+        <input type="number " id="balance" name="balance" value="" style="text-align:center;" hidden    placeholder="Insert a bill" ><br><br>
 
         <input type="submit" name="loadButton" id="loadButton" class="button" value="Load"></input>
-        <input type="submit" name="submit_balance" value="Add Balance" class="button"></input>
+        <!--<input type="submit" name="submit_balance" value="Add Balance" class="button"></input>-->
 
         </form>
 
@@ -123,8 +128,8 @@ if (isset($_POST['submit_balance'])) {
 <script src="../js/counter.js"></script>
 <script src="../js/balanceRealTimeUpdate.js"></script>
 <script src="../js/TNCLoad.js" defer></script>
-<script src="../js/balance_insertion.js" defer></script>
-</body>
+<<script src="../js/balance_insertion.js" defer></script>
+<body>
 </html>
 
 <?php
