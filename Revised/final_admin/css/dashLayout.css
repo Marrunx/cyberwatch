@@ -1,0 +1,111 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set up the body and main container */
+body {
+    background-color: #ececec;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* Main container layout */
+.dashboard-layout {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on small screens */
+    min-height: 100vh;
+    margin-left: 220px; /* Space for sidebar */
+    width: calc(100% - 220px); /* Ensures content doesn't overlap with sidebar */
+    overflow: hidden;
+}
+
+/* Sidebar styles */
+
+
+/* card containers */
+.card-container {
+    margin-top: 91px;
+}
+
+/* Main content (top cards) */
+.top-card-contents {
+    display: flex;
+    justify-content: center;
+    /* flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+    margin-left: 130px;
+    margin-bottom: 10px;
+    gap: 18px;
+}
+
+/* Card Styles */
+.card-active-sessions, .card-available-computers, .card-revenue {
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;  /* Adjust width for smaller screens */
+    height: 120px; /* Fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+.nameCard {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 1px;
+}
+
+.valueDisplay {
+    font-size: 21px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 21px;
+}
+
+/* 2 cards */
+.bot-card-transactions {
+    display: flex;
+}
+
+.quick-views {
+    display: flex;
+    gap: 10px;
+}
+
+.l-nameCard {
+    font-size: 18px;
+}
+
+.card-transactions-cont {
+    margin-left: 130px;
+    margin-bottom: 100px;
+}
+
+.card-transactions {
+    background-color: #ffffff;
+    height: 380px;
+    width: 450px;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.card-quick-chart {
+    display: flex;
+    flex-direction: row;
+    width: 630px;
+    height: 380px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+canvas {
+    width: 630px;
+    height: 400px;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+}

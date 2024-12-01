@@ -67,34 +67,36 @@ if (isset($_POST['submit_balance'])) {
 
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <link href="../images/icon/web-icon.png" rel="website icon" type="png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>TNC Dashboard</title>
-  <!---Custom CSS File--->
-  <link rel="stylesheet" href="../css/loginstyle.css">
-  </head>
+    <head>
+        <meta charset="UTF-8">
+        <link href="../images/icon/web-icon.png" rel="website icon" type="png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>TNC Dashboard</title>
+        <!---Custom CSS File--->
+        <link rel="stylesheet" href="../css/loginstyle.css">
+    </head>
 <body style="background-color: #3B3B3B;">
 <div class="loader"></div>
 <div class="container">
     <input type="checkbox" id="check">
     <div class="login form">
-      <header class="" style="color: black;">Cyber Café</header>
-      <form action="" method="POST" id="autosubmit">
-      <label for="loadBal">UID</label>
-      <input type="text" name="uid" id="uid" value="<?php echo $uid; ?>" style="text-align:center;"readonly/><br>
+        <header class="" style="color: black;">Cyber Café</header>
+        <form action="" method="POST" id="autosubmit">
 
-
+        <input type="text" name="tid" id="tid" readonly hidden>
+    
+        <label for="loadBal">UID</label>
+        <input type="text" name="uid" id="uid" value="<?php echo $uid; ?>" style="text-align:center;"readonly/><br>
 
         <?php if ($userData): ?>
             <label for="pc_number">PC Number</label>
             <input type="text" name="pc_number" id="pc_number" value="" style="text-align:center;" readonly><br>
-
+            
             <label for="loadBal">Load Balance</label>
             <input type="text" name="loadBal" id="loadBal" value="<?php echo number_format($userData['balance']); ?>" style="text-align:center;"readonly/><br>
 
+            <div id="promosDiv">
             <label for="">Promos</label>
                         <select id="promo" name="promoList" class="promoText">
                             <option value="" selected disabled>Select promo</option>
@@ -102,16 +104,16 @@ if (isset($_POST['submit_balance'])) {
                             <option value="40">2 Hours | PHP 40</option>
                             <option value="60">3 Hours | PHP 60</option>
                         </select>
+                        </div>
         <?php else: ?>
             <p>User not found</p>
         <?php endif; ?>
         <br>
 
         <label for="balance">Add Balance </label><br>
-        <input type="number" id="balance" name="balance" value="" style="text-align:center;" required placeholder="Insert a bill" ><br><br>
+        <input type="number" id="   " name="balance" value="" style="text-align:center;" placeholder="Insert a bill"><br><br>
 
         <input type="submit" name="loadButton" id="loadButton" class="button" value="Load"></input>
-        <input type="submit" name="submit_balance" value="Add Balance" class="button"></input>
 
         </form>
 
@@ -120,32 +122,59 @@ if (isset($_POST['submit_balance'])) {
     </div>
   </div>
 
+<script src="../js/TNCLoad.js" defer></script>
 <script src="../js/counter.js"></script>
 <script src="../js/balanceRealTimeUpdate.js"></script>
-<script src="../js/TNCLoad.js" defer></script>
 <script src="../js/balance_insertion.js" defer></script>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const pcNumber = urlParams.get('pcNumber');
+
+    const promoDropDown =document.getElementById('promo');
+
+    if(pcNumber == 0){
+        const promoDiv = document.getElementById('promosDiv');
+        const loadBUtton =document.getElementById('loadButton');
+
+        promoDiv.style.display = "none";
+        loadBUtton.style.display = "none";
+        document.getElementById('pc_number').value = "No PC is available";
+        
+    }
+    else{
+    document.getElementById('pc_number').value = pcNumber;}
+</script>
 </body>
 </html>
 
 <?php
-//php load fuction
-if(isset($_POST['loadButton'])){
-    $uid = $_POST['uid'];
+if (isset($_POST['loadButton'])) {
+    $tid = $_POST['tid'];
+    $uid = $_GET['uid'];
     $promo = $_POST['promoList'];
-    $pc_number =$_POST['pc_number'];
+    $pc_number = $_POST['pc_number'];
 
+    $tidNum = rand(100000000000, 999999999999);
+    $tid = "TNCIMUS-$tidNum";
+
+    // Calculate the new balance
     $newBalance = $userData['balance'] - $promo;
 
-    $sqlLoadUID = "UPDATE customerregister_tbl SET balance = '$newBalance', promo = '$promo', pc_number = '$pc_number' WHERE uid = '$uid'";
-    $qryLoadUID = mysqli_query($conn, $sqlLoadUID);
+    // Update the customer's balance and promo details in customerregister_tbl
+    $sqlLoadUID = "UPDATE customerregister_tbl SET balance = '$newBalance', promo = '$promo', pc_number = '$pc_number' WHERE UID = '$uid'";
+    mysqli_query($conn, $sqlLoadUID);
 
+    $sqlInsertSales = "INSERT INTO sales_tbl VALUES('', '$tid','$uid' , '$promo', 'Promo Deal', NOW(), NOW())";
+    mysqli_query($conn, $sqlInsertSales);
     echo"
-        <script>
-            alert('Promo availed! Please proceed to your designated PC number.');
-            window.open('../function/submitData.php?uid=$uid','_blank');
-        </script>
+    <script>
+        alert('Promo availed! Please proceed to your designated PC number.');
+        window.location.href = '../TNCScan.php';
+    </script>
     ";
 }
-// Closing the connection to the database
-$conn->close();
+
+
+//check 
 ?>

@@ -9,4 +9,6 @@ $uidData = mysqli_fetch_assoc($uidDataQRY);
 
 $promo = $uidData['promo'];
 $pc_number = $uidData['pc_number'];
+
+echo"$uid $promo $pc_number";
 ?>

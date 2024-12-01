@@ -26,7 +26,7 @@ if (file_exists($logFile)) {
       <header class="" style="color: black;">Cyber Café </header>
       <form action="function/check_uid.php" method="POST" id="autosubmit">
         <textarea 
-            readonly
+
             id="uid-display" 
             class="UID" 
             name="uid" 
@@ -35,11 +35,6 @@ if (file_exists($logFile)) {
         </textarea>
             <input type="submit" class="button" value="Submit" name="submit">
         </form>
-      <div class="signup">
-        <span class="signup">Don't have an account?
-         <label for="check" ><a href="TNCSite/TNCRegister.php">Click Here!</a></label>
-        </span>
-      </div>
     </div>
 
   </div>

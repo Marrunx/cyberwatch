@@ -88,11 +88,6 @@ if (file_exists($logFile)) {
         <input type="number" id="balance" name="balance" placeholder="Enter Balance" style="padding-left: 10px;"><br><br>
         <input type="submit" class="button" value="Submit" name="submit">
     </ffor>
-      <div class="signup">
-        <span class="signup">Already have an account?
-         <label for="check" ><a href="../TNCScan.php">Click Here!</a></label>
-        </span>
-      </div>
     </div>
 
   </div>

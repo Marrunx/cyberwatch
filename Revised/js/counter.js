@@ -84,9 +84,3 @@ function calculateCost() {
     document.getElementById("current-load").textContent = 
         `Current Load: ₱${currentLoad.toFixed(2)}`;
 }
-
-// Window onload function to set random PC number
-window.onload = function() {
-    var randomPCNumber = Math.floor(Math.random() * 2)  + 1;  // Generates number from 1 to 15
-    document.getElementById('pc_number').value = randomPCNumber;  // Assign to input field
-};

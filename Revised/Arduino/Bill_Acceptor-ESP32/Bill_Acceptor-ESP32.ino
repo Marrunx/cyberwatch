@@ -1,7 +1,7 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-const int pulsePin = 23; // Pin connected to the pulse output of the bill acceptor
+const int pulsePin = 22; // Pin connected to the pulse output of the bill acceptor
 unsigned long pulseCount = 0; // Total pulses received
 float totalAmount = 0.0;     // Total accumulated amount (in PHP)
 
@@ -13,7 +13,8 @@ const char* ssid = "Marron";  // Replace with your WiFi SSID
 const char* password = "543210123";  // Replace with your WiFi password
 
 // Server URL (make sure it's the correct URL of your PHP script)
-const char* serverUrl = "http://192.168.0.117/Computer/Revised/function/balance_log.php";  // Adjust the URL
+const char* serverUrl = "http://192.168.2.63/ComputerRental/Revised/function/balance_log.php";  // Adjust the URL
+//C:\xampp\htdocs\ComputerRental\Revised\function
 
 void sendBalanceToServer(float amount) {
   if (WiFi.status() == WL_CONNECTED) { // Check if connected to WiFi

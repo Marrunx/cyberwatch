@@ -1,0 +1,227 @@
+/* General reset and styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    height: 100%;
+}
+
+.titleHead {
+    padding: 8px;
+    margin-left: 12px;
+    font-size: 24px;
+    font-family: Poppins;
+    margin-top: 5px;
+}
+
+.sub-title {
+    padding: 8px;
+    margin-left: 12px;
+    font-size: 14px;
+    font-family: Poppins;
+    margin-bottom: 5px;
+}
+/* Container for the form */
+.container {
+    max-width: 950px;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Form Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 4 equal columns */
+    gap: 10px;
+    margin-top: -20px;
+    padding: 12px;
+}
+
+/* Form Category */
+.form-category {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* space between label/input pairs */
+    font-family: Poppins;
+}
+
+.category-title {
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-top: 24px;
+    font-size: 18px;
+    font-family: Poppins;
+}
+
+.form-category-upper {
+    margin-top: -170px;
+}
+
+.form-category-upper label {
+    margin-bottom: 10px;
+}
+
+.form-category-upper input {
+    margin-bottom: 15px;
+}
+
+.mid-suffix-container {
+    display: flex;
+    gap: 30px;
+}
+
+.label-container {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+#residence {
+    margin-top: 5px;
+    width: 100px;
+}
+
+.mid-suffix-container label {
+    display: block;
+    margin: 5px;
+}
+
+.street-brgy-container {
+    display: flex;
+    gap: 10px;
+}
+
+.street-brgy-container label {
+    display: block;
+    margin: 5px;
+}
+
+#street {
+    width: 115px;
+}
+
+#brgy {
+    width: 155px;
+}
+
+/* Input Fields */
+::placeholder {
+    font-style: italic;
+    font-size: 14px;
+    font-family: Poppins;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #232323;
+    border-radius: 4px;
+    width: 280px;
+    height: 28px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-family: Fustat;
+    font-size: 14px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: -5px;
+    font-size: 16px;
+    font-family: Fustat;
+}
+
+#midname {
+    width: 140px;
+}
+
+#suffix {
+    width: 110px;
+}
+
+button {
+    display: flex;
+    border: none;
+    border-radius: 5px;
+    width: 120px;
+    height: 31px;
+    padding: 8px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+    margin-left: 160px;
+    cursor: pointer;
+    background-color: #F05825;
+    font-family: Poppins;
+    color: #f4f4f4;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    color: #f4f4f4;
+    background-color: #1a1a1a;
+    transform: scale(1.05);
+}
+
+.notice {
+    font-family: Fustat;
+    margin-top: 10px;
+    margin-left: 45px;
+}
+
+a {
+    font-family: Fustat;
+}
+
+.showPassword-box {
+    display: flex;
+    gap: 5px;
+}
+
+.instruction {
+    font-family: Fustat;
+    font-size: 14px;
+    margin: 0;
+}
+
+.showPassword-box input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+select {
+    width: 280px;
+    height: 28px;
+    border-radius: 5px;
+    font-family: Fustat;
+    font-size: 14px;
+}
+
+#barangay {
+    width: 150px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr; /* 2 columns on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 column on very small screens */
+    }
+}

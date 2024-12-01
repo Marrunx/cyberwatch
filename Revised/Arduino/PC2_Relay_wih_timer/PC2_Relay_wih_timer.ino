@@ -11,7 +11,7 @@
 const char* ssid = "OPPOA17"; // Replace with your WiFi SSID
 const char* password = "jjuralbal"; // Replace with your WiFi password
 // Server URLs
-const String serverUrl = "http://192.168.249.63/ComputerRental/Revised/function/get_uid_promo_pc1.php"; // Fetch UID and promo
+const String serverUrl = "http://192.168.249.63/ComputerRental/Revised/function/get_uid_promo_pc2.php"; // Fetch UID and promo
 const String resetUrl = "http://192.168.249.63/ComputerRental/Revised/function/reset_promo.php";       // Reset promo
 const String resetPcNumberUrl = "http://192.168.249.63/ComputerRental/Revised/function/reset_pc_number.php"; // Reset pc_number
 
@@ -20,7 +20,7 @@ const int relayPin = 23;
 
 
 // PC number of this ESP32
-const int pcNumber = 1;
+const int pcNumber = 2;
 
 // TM1637 Display
 TM1637Display display(CLK, DIO);

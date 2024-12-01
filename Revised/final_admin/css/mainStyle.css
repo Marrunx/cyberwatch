@@ -1,0 +1,93 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Fustat;
+    background-color: #EFECEC;
+    color: #232323;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+/* Sidebar styling */
+.side-nav-bar {
+    display: flex;
+    flex-direction: column;
+    background-color: #D25228;
+    width: 220px; /* Default width */
+    height: 100vh;
+    padding: 28px;
+    border-top-right-radius: 20px;
+    position: fixed; /* Keep the sidebar fixed on larger screens */
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease;
+    box-sizing: border-box;
+    z-index: 100; /* Ensure it stays above content */
+}
+
+/* Navigation container */
+.side-nav-container {
+    list-style: none;
+    margin-top: 48px;
+}
+
+.nav-link {
+    margin-bottom: 21px;
+}
+
+.nav-link a {
+    text-decoration: none;
+    color: #EFECEC;
+    font-size: 18px;
+}
+
+/* Adjust container to make room for sidebar */
+.container {
+    display: flex;
+    flex-wrap: wrap; /* This allows the content to wrap when the sidebar changes */
+    margin-left: 220px; /* Adjusts based on sidebar width */
+    width: calc(100% - 220px); /* Ensures content doesn't overlap with sidebar */
+}
+
+/* For small and medium screens */
+@media screen and (max-width: 768px) {
+    .side-nav-bar {
+        width: 100%; /* Sidebar takes full width */
+        position: relative; /* Remove fixed position */
+        height: auto; /* Allow it to grow with content */
+        border-radius: 0; /* Remove border radius for a cleaner look */
+        padding: 16px; /* Adjust padding for smaller screens */
+    }
+
+    .side-nav-container {
+        margin-top: 24px;
+        font-size: 16px;
+    }
+
+    .nav-link {
+        margin-bottom: 16px;
+    }
+
+    .container {
+        margin-left: 0; /* Remove left margin */
+        width: 100%; /* Full width */
+    }
+}
+
+/* For extra small screens (phones) */
+@media screen and (max-width: 480px) {
+    .side-nav-bar {
+        width: 100%; /* Sidebar takes full width */
+        padding: 16px;
+    }
+
+    .nav-link a {
+        font-size: 16px; /* Smaller font size */
+    }
+}
